@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Blackjackgame;
+use Illuminate\Http\Request;
 
 class BlackJackController extends Controller
 {
     public function index(Request $request)
     {
-        $game = $request->session()->get('game', new Blackjackgame());
+        $game = $request->session()->get('game', new Blackjackgame);
+
         return view('blackjack.index', compact('game'));
     }
 
     public function start(Request $request)
     {
-        $game = new Blackjackgame(); 
+        $game = new Blackjackgame;
         $game->deal();
-        
+
         $request->session()->put('game', $game);
 
         return redirect()->route('blackjack.index');
@@ -37,7 +38,7 @@ class BlackJackController extends Controller
     {
         $game = $request->session()->get('game');
         $request->session()->put('game', $game);
-        
+
         return redirect()->route('blackjack.result');
     }
 
@@ -49,29 +50,31 @@ class BlackJackController extends Controller
     // --- JSON API endpoints for React ---
     public function apiStart(Request $request)
     {
-        $game = new Blackjackgame();
+        $game = new Blackjackgame;
         $game->deal();
         $request->session()->put('game', $game);
+
         return response()->json(['game' => $this->serializeGame($game)]);
     }
 
     public function apiHit(Request $request)
     {
         $game = $request->session()->get('game');
-        if (!$game) {
-            $game = new Blackjackgame();
+        if (! $game) {
+            $game = new Blackjackgame;
             $game->deal();
         }
         $game->hit();
         $request->session()->put('game', $game);
+
         return response()->json(['game' => $this->serializeGame($game)]);
     }
 
     public function apiStand(Request $request)
     {
         $game = $request->session()->get('game');
-        if (!$game) {
-            $game = new Blackjackgame();
+        if (! $game) {
+            $game = new Blackjackgame;
             $game->deal();
         }
         // Dealer draws to 17
@@ -98,13 +101,17 @@ class BlackJackController extends Controller
         $payload = $this->serializeGame($game);
         $payload['result'] = $result;
         $request->session()->put('game', $game);
+
         return response()->json(['game' => $payload]);
     }
 
     private function serializeGame(Blackjackgame $game): array
     {
         $serialize = function ($card) {
-            if (!$card) return null;
+            if (! $card) {
+                return null;
+            }
+
             return [
                 'rank' => $card->rank,
                 'suit' => substr(strtolower($card->suit), 0, 1) === 's' ? 'S'

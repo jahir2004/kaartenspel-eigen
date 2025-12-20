@@ -1,11 +1,13 @@
 
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlackjackController;
+use Illuminate\Support\Facades\Route;
 
 // ...existing code...
-Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/blackjack', function () {
     return view('blackjack.game');
@@ -15,6 +17,7 @@ Route::get('/blackjack/hit', [BlackjackController::class, 'hit'])->name('blackja
 
 Route::get('/blackjack/result', function (\Illuminate\Http\Request $request) {
     $game = $request->session()->get('game');
+
     return view('blackjack.result', compact('game'));
 })->name('blackjack.result');
 
