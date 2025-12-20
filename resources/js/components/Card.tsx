@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 interface CardProps {
@@ -8,14 +7,14 @@ interface CardProps {
 }
 
 const suitMap: Record<string, string> = {
-    'S': 'spades',
-    'H': 'hearts',
-    'D': 'diamonds',
-    'C': 'clubs',
+    S: 'spades',
+    H: 'hearts',
+    D: 'diamonds',
+    C: 'clubs',
 };
 
 const rankMap: Record<string, string> = {
-    'A': 'A',
+    A: 'A',
     '2': '02',
     '3': '03',
     '4': '04',
@@ -25,9 +24,9 @@ const rankMap: Record<string, string> = {
     '8': '08',
     '9': '09',
     '10': '10',
-    'J': 'J',
-    'Q': 'Q',
-    'K': 'K',
+    J: 'J',
+    Q: 'Q',
+    K: 'K',
 };
 
 export default function Card({ rank, suit, delay = 0 }: CardProps) {
@@ -43,11 +42,7 @@ export default function Card({ rank, suit, delay = 0 }: CardProps) {
             transition={{ duration: 0.4, delay }}
             className="inline-block"
         >
-            <img
-                src={`/cards/${fileName}`}
-                alt={`${rank} of ${suit}`}
-                className="w-24 h-auto rounded-lg shadow-lg hover:shadow-xl transition"
-            />
+            <img src={`/cards/${fileName}`} alt={`${rank} of ${suit}`} className="h-auto w-24 rounded-lg shadow-lg transition hover:shadow-xl" />
         </motion.div>
     );
 }

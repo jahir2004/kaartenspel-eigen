@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Card from "./Card";
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import Card from './Card';
 
 interface CardType {
     rank: string;
@@ -21,12 +21,12 @@ export default function Blackjack() {
     const startGame = async () => {
         setLoading(true);
         try {
-            const response = await fetch('/blackjack/api/start', { 
+            const response = await fetch('/blackjack/api/start', {
                 method: 'POST',
-                headers: { 'Accept': 'application/json', 'X-CSRF-TOKEN': csrf }
+                headers: { Accept: 'application/json', 'X-CSRF-TOKEN': csrf },
             });
             const data = await response.json();
-            
+
             if (data.game) {
                 setPlayerCards(data.game.player_hand || []);
                 setDealerCards(data.game.dealer_hand || []);
@@ -45,12 +45,12 @@ export default function Blackjack() {
     const hitCard = async () => {
         setLoading(true);
         try {
-            const response = await fetch('/blackjack/api/hit', { 
+            const response = await fetch('/blackjack/api/hit', {
                 method: 'POST',
-                headers: { 'Accept': 'application/json', 'X-CSRF-TOKEN': csrf }
+                headers: { Accept: 'application/json', 'X-CSRF-TOKEN': csrf },
             });
             const data = await response.json();
-            
+
             if (data.game) {
                 setPlayerCards(data.game.player_hand || []);
                 setPlayerScore(calculateScore(data.game.player_hand || []));
@@ -66,12 +66,12 @@ export default function Blackjack() {
     const stand = async () => {
         setLoading(true);
         try {
-            const response = await fetch('/blackjack/api/stand', { 
+            const response = await fetch('/blackjack/api/stand', {
                 method: 'POST',
-                headers: { 'Accept': 'application/json', 'X-CSRF-TOKEN': csrf }
+                headers: { Accept: 'application/json', 'X-CSRF-TOKEN': csrf },
             });
             const data = await response.json();
-            
+
             if (data.game) {
                 setDealerCards(data.game.dealer_hand || []);
                 setDealerScore(calculateScore(data.game.dealer_hand || []));
@@ -94,45 +94,27 @@ export default function Blackjack() {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-green-700 to-green-900 p-8 text-white">
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-5xl font-bold text-center mb-12">♠ Blackjack ♠</h1>
+            <div className="mx-auto max-w-4xl">
+                <h1 className="mb-12 text-center text-5xl font-bold">♠ Blackjack ♠</h1>
 
                 {/* Dealer's Hand */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-2xl font-semibold mb-4">Dealer's Hand</h2>
-                    <p className="text-xl mb-4">Score: {dealerScore}</p>
-                    <div className="flex gap-4 justify-center flex-wrap">
-                        {dealerCards.map((card, idx) => (
-                            card && (
-                                <Card
-                                    key={idx}
-                                    rank={card.rank}
-                                    suit={card.suit}
-                                    delay={idx * 0.2}
-                                />
-                            )
-                        ))}
+                    <h2 className="mb-4 text-2xl font-semibold">Dealer's Hand</h2>
+                    <p className="mb-4 text-xl">Score: {dealerScore}</p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {dealerCards.map((card, idx) => card && <Card key={idx} rank={card.rank} suit={card.suit} delay={idx * 0.2} />)}
                     </div>
                 </div>
 
                 {/* Divider */}
-                <div className="h-1 bg-white opacity-30 mb-16"></div>
+                <div className="mb-16 h-1 bg-white opacity-30"></div>
 
                 {/* Player's Hand */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-2xl font-semibold mb-4">Your Hand</h2>
-                    <p className="text-xl mb-4">Score: {playerScore}</p>
-                    <div className="flex gap-4 justify-center flex-wrap">
-                        {playerCards.map((card, idx) => (
-                            card && (
-                                <Card
-                                    key={idx}
-                                    rank={card.rank}
-                                    suit={card.suit}
-                                    delay={idx * 0.2}
-                                />
-                            )
-                        ))}
+                    <h2 className="mb-4 text-2xl font-semibold">Your Hand</h2>
+                    <p className="mb-4 text-xl">Score: {playerScore}</p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {playerCards.map((card, idx) => card && <Card key={idx} rank={card.rank} suit={card.suit} delay={idx * 0.2} />)}
                     </div>
                 </div>
 
@@ -141,21 +123,21 @@ export default function Blackjack() {
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-center mb-8 p-4 bg-yellow-500 text-black rounded-lg text-xl font-bold"
+                        className="mb-8 rounded-lg bg-yellow-500 p-4 text-center text-xl font-bold text-black"
                     >
                         {result.replace('_', ' ').toUpperCase()}
                     </motion.div>
                 )}
 
                 {/* Buttons */}
-                <div className="flex gap-4 justify-center flex-wrap">
+                <div className="flex flex-wrap justify-center gap-4">
                     {!gameStarted ? (
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={startGame}
                             disabled={loading}
-                            className="px-6 py-3 bg-blue-600 rounded-lg font-bold hover:bg-blue-700 transition disabled:opacity-50"
+                            className="rounded-lg bg-blue-600 px-6 py-3 font-bold transition hover:bg-blue-700 disabled:opacity-50"
                         >
                             {loading ? 'Starting...' : 'Start Game'}
                         </motion.button>
@@ -166,7 +148,7 @@ export default function Blackjack() {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={hitCard}
                                 disabled={loading || result !== null}
-                                className="px-6 py-3 bg-green-600 rounded-lg font-bold hover:bg-green-700 transition disabled:opacity-50"
+                                className="rounded-lg bg-green-600 px-6 py-3 font-bold transition hover:bg-green-700 disabled:opacity-50"
                             >
                                 {loading ? 'Loading...' : 'Hit'}
                             </motion.button>
@@ -175,7 +157,7 @@ export default function Blackjack() {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={stand}
                                 disabled={loading || result !== null}
-                                className="px-6 py-3 bg-red-600 rounded-lg font-bold hover:bg-red-700 transition disabled:opacity-50"
+                                className="rounded-lg bg-red-600 px-6 py-3 font-bold transition hover:bg-red-700 disabled:opacity-50"
                             >
                                 {loading ? 'Loading...' : 'Stand'}
                             </motion.button>
@@ -184,7 +166,7 @@ export default function Blackjack() {
                                 whileTap={{ scale: 0.95 }}
                                 onClick={startGame}
                                 disabled={loading}
-                                className="px-6 py-3 bg-purple-600 rounded-lg font-bold hover:bg-purple-700 transition disabled:opacity-50"
+                                className="rounded-lg bg-purple-600 px-6 py-3 font-bold transition hover:bg-purple-700 disabled:opacity-50"
                             >
                                 {loading ? 'Loading...' : 'New Game'}
                             </motion.button>
