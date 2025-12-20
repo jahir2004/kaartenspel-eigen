@@ -27,3 +27,14 @@ yarn-error.log
 /.zed
 node_modules
 node_modules
+
+# Ignore SQLite database files
+database/database.sqlite
+
+# Ignore build assets
+/public/build/
+/public/hot
+
+# Ignore node_modules and vendor
+/node_modules/
+/vendor/
