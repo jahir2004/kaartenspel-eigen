@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Card from './Card';
+import { leaderboard } from '@/routes';
 
 interface CardType {
     rank: string;
@@ -129,50 +130,64 @@ export default function Blackjack() {
                     </motion.div>
                 )}
 
-                {/* Buttons */}
-                <div className="flex flex-wrap justify-center gap-4">
-                    {!gameStarted ? (
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={startGame}
-                            disabled={loading}
-                            className="rounded-lg bg-blue-600 px-6 py-3 font-bold transition hover:bg-blue-700 disabled:opacity-50"
-                        >
-                            {loading ? 'Starting...' : 'Start Game'}
-                        </motion.button>
-                    ) : (
-                        <>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={hitCard}
-                                disabled={loading || result !== null}
-                                className="rounded-lg bg-green-600 px-6 py-3 font-bold transition hover:bg-green-700 disabled:opacity-50"
-                            >
-                                {loading ? 'Loading...' : 'Hit'}
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={stand}
-                                disabled={loading || result !== null}
-                                className="rounded-lg bg-red-600 px-6 py-3 font-bold transition hover:bg-red-700 disabled:opacity-50"
-                            >
-                                {loading ? 'Loading...' : 'Stand'}
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={startGame}
-                                disabled={loading}
-                                className="rounded-lg bg-purple-600 px-6 py-3 font-bold transition hover:bg-purple-700 disabled:opacity-50"
-                            >
-                                {loading ? 'Loading...' : 'New Game'}
-                            </motion.button>
-                        </>
-                    )}
-                </div>
+                                
+                                {/* Buttons */}
+                                <div className="flex flex-wrap justify-center gap-4">
+                                    {!gameStarted ? (
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={startGame}
+                                            disabled={loading}
+                                            className="rounded-lg bg-blue-600 px-6 py-3 font-bold transition hover:bg-blue-700 disabled:opacity-50"
+                                        >
+                                            {loading ? 'Starting...' : 'Start Game'}
+                                        </motion.button>
+                                    ) : (
+                                        <>
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={hitCard}
+                                                disabled={loading || result !== null}
+                                                className="rounded-lg bg-green-600 px-6 py-3 font-bold transition hover:bg-green-700 disabled:opacity-50"
+                                            >
+                                                {loading ? 'Loading...' : 'Hit'}
+                                            </motion.button>
+                
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={stand}
+                                                disabled={loading || result !== null}
+                                                className="rounded-lg bg-red-600 px-6 py-3 font-bold transition hover:bg-red-700 disabled:opacity-50"
+                                            >
+                                                {loading ? 'Loading...' : 'Stand'}
+                                            </motion.button>
+                
+                                            <motion.button
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                onClick={startGame}
+                                                disabled={loading}
+                                                className="rounded-lg bg-purple-600 px-6 py-3 font-bold transition hover:bg-purple-700 disabled:opacity-50"
+                                            >
+                                                {loading ? 'Loading...' : 'New Game'}
+                                            </motion.button>
+                
+                                            {result !== null && (
+                                                <div className="flex gap-4 justify-center mt-6">
+                                                    <a href="/" className="rounded-lg bg-gray-800 px-6 py-3 font-bold hover:bg-gray-900 inline-flex items-center justify-center">
+                                                        Home
+                                                    </a>
+                                                    <a href="/leaderboard" className="rounded-lg bg-stone-600 px-6 py-3 font-bold hover:bg-stone-700 inline-flex items-center justify-center">
+                                                        Leaderboard
+                                                    </a>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
             </div>
         </div>
     );

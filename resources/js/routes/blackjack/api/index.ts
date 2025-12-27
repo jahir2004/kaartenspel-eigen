@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../../wayfinder'
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:51
+ * @see app/Http/Controllers/BlackJackController.php:53
  * @route '/blackjack/api/start'
  */
 export const start = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +16,7 @@ start.definition = {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:51
+ * @see app/Http/Controllers/BlackJackController.php:53
  * @route '/blackjack/api/start'
  */
 start.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ start.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:51
+ * @see app/Http/Controllers/BlackJackController.php:53
  * @route '/blackjack/api/start'
  */
 start.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +35,7 @@ start.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:51
+ * @see app/Http/Controllers/BlackJackController.php:53
  * @route '/blackjack/api/start'
  */
     const startForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +45,7 @@ start.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:51
+ * @see app/Http/Controllers/BlackJackController.php:53
  * @route '/blackjack/api/start'
  */
         startForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -56,7 +56,7 @@ start.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     start.form = startForm
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:60
+ * @see app/Http/Controllers/BlackJackController.php:62
  * @route '/blackjack/api/hit'
  */
 export const hit = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -71,7 +71,7 @@ hit.definition = {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:60
+ * @see app/Http/Controllers/BlackJackController.php:62
  * @route '/blackjack/api/hit'
  */
 hit.url = (options?: RouteQueryOptions) => {
@@ -80,7 +80,7 @@ hit.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:60
+ * @see app/Http/Controllers/BlackJackController.php:62
  * @route '/blackjack/api/hit'
  */
 hit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -90,7 +90,7 @@ hit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:60
+ * @see app/Http/Controllers/BlackJackController.php:62
  * @route '/blackjack/api/hit'
  */
     const hitForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -100,7 +100,7 @@ hit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:60
+ * @see app/Http/Controllers/BlackJackController.php:62
  * @route '/blackjack/api/hit'
  */
         hitForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -111,7 +111,7 @@ hit.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     hit.form = hitForm
 /**
 * @see \App\Http\Controllers\BlackjackController::stand
- * @see app/Http/Controllers/BlackJackController.php:73
+ * @see app/Http/Controllers/BlackJackController.php:75
  * @route '/blackjack/api/stand'
  */
 export const stand = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -126,7 +126,7 @@ stand.definition = {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::stand
- * @see app/Http/Controllers/BlackJackController.php:73
+ * @see app/Http/Controllers/BlackJackController.php:75
  * @route '/blackjack/api/stand'
  */
 stand.url = (options?: RouteQueryOptions) => {
@@ -135,7 +135,7 @@ stand.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::stand
- * @see app/Http/Controllers/BlackJackController.php:73
+ * @see app/Http/Controllers/BlackJackController.php:75
  * @route '/blackjack/api/stand'
  */
 stand.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -145,7 +145,7 @@ stand.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\BlackjackController::stand
- * @see app/Http/Controllers/BlackJackController.php:73
+ * @see app/Http/Controllers/BlackJackController.php:75
  * @route '/blackjack/api/stand'
  */
     const standForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -155,7 +155,7 @@ stand.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\BlackjackController::stand
- * @see app/Http/Controllers/BlackJackController.php:73
+ * @see app/Http/Controllers/BlackJackController.php:75
  * @route '/blackjack/api/stand'
  */
         standForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

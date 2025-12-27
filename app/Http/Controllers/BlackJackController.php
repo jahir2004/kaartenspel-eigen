@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blackjackgame;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BlackJackController extends Controller
 {
@@ -99,11 +101,26 @@ class BlackJackController extends Controller
         }
 
         $payload = $this->serializeGame($game);
-        $payload['result'] = $result;
-        $request->session()->put('game', $game);
+    $payload['result'] = $result;
+    $request->session()->put('game', $game);
 
-        return response()->json(['game' => $payload]);
+    if (auth()->check()) {
+        $map = [
+            'player_win'  => 'win',
+            'dealer_bust' => 'win',
+            'dealer_win'  => 'loss',
+            'player_bust' => 'loss',
+            'push'        => 'draw',
+        ];
+        $normalized = $map[$result] ?? 'draw';
+        $points = $normalized === 'win' ? $player : 0;
+        if ($normalized !== 'draw') {
+            $this->finalizeGame(auth()->user(), $normalized, $points);
+        }
     }
+
+    return response()->json(['game' => $payload]);
+}
 
     private function serializeGame(Blackjackgame $game): array
     {
@@ -129,4 +146,17 @@ class BlackJackController extends Controller
             'result' => null,
         ];
     }
+
+    protected function finalizeGame(User $user, string $result, int $points = 0)
+{
+    $stat = $user->gameStat ?? $user->gameStat()->create([]);
+    $stat->total_score = ($stat->total_score ?? 0) + $points;
+    if ($result === 'win') $stat->wins = ($stat->wins ?? 0) + 1;
+    if ($result === 'loss') $stat->losses = ($stat->losses ?? 0) + 1;
+    $stat->last_played = now();
+    $stat->save();
 }
+   
+   
+}  
+     

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../../wayfinder'
 import api from './api'
 /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -15,7 +15,7 @@ index.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -23,7 +23,7 @@ index.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -31,7 +31,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -40,7 +40,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -49,7 +49,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -57,7 +57,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/web.php:12
+ * @see routes/web.php:13
  * @route '/blackjack'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -73,7 +73,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
 export const start = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -88,7 +88,7 @@ start.definition = {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
 start.url = (options?: RouteQueryOptions) => {
@@ -97,7 +97,7 @@ start.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
 start.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -106,7 +106,7 @@ start.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
 start.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -116,7 +116,7 @@ start.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
     const startForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -126,7 +126,7 @@ start.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
         startForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -135,7 +135,7 @@ start.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\BlackjackController::start
- * @see app/Http/Controllers/BlackJackController.php:17
+ * @see app/Http/Controllers/BlackJackController.php:19
  * @route '/blackjack/start'
  */
         startForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -151,7 +151,7 @@ start.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     start.form = startForm
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
 export const hit = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -166,7 +166,7 @@ hit.definition = {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
 hit.url = (options?: RouteQueryOptions) => {
@@ -175,7 +175,7 @@ hit.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
 hit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -184,7 +184,7 @@ hit.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
 hit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -194,7 +194,7 @@ hit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
     const hitForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -204,7 +204,7 @@ hit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
         hitForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -213,7 +213,7 @@ hit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\BlackjackController::hit
- * @see app/Http/Controllers/BlackJackController.php:27
+ * @see app/Http/Controllers/BlackJackController.php:29
  * @route '/blackjack/hit'
  */
         hitForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -228,7 +228,7 @@ hit.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     hit.form = hitForm
 /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
 export const result = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -242,7 +242,7 @@ result.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
 result.url = (options?: RouteQueryOptions) => {
@@ -250,7 +250,7 @@ result.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
 result.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -258,7 +258,7 @@ result.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
 result.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -267,7 +267,7 @@ result.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
     const resultForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -276,7 +276,7 @@ result.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
         resultForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -284,7 +284,7 @@ result.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/web.php:18
+ * @see routes/web.php:19
  * @route '/blackjack/result'
  */
         resultForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,12 +298,91 @@ result.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     result.form = resultForm
+/**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+export const extra = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: extra.url(options),
+    method: 'get',
+})
+
+extra.definition = {
+    methods: ["get","head"],
+    url: '/blackjack/extra',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+extra.url = (options?: RouteQueryOptions) => {
+    return extra.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+extra.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: extra.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+extra.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: extra.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+    const extraForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: extra.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+        extraForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: extra.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\BlackjackController::extra
+ * @see app/Http/Controllers/BlackJackController.php:0
+ * @route '/blackjack/extra'
+ */
+        extraForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: extra.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    extra.form = extraForm
 const blackjack = {
     index: Object.assign(index, index),
 start: Object.assign(start, start),
 hit: Object.assign(hit, hit),
 result: Object.assign(result, result),
 api: Object.assign(api, api),
+extra: Object.assign(extra, extra),
 }
 
 export default blackjack

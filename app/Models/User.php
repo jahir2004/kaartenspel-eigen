@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function gameStat()
+    {
+        return $this->hasOne(GameStat::class);
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(\App\Models\Achievement::class);
+    }
 }

@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.game')
 
 @section('title', 'Blackjack')
 
@@ -10,6 +10,8 @@
         <a href="{{ route('blackjack.start') }}" class="px-4 py-2 bg-blue-600 text-white rounded">Start</a>
         <a href="{{ route('blackjack.hit') }}" class="px-4 py-2 bg-emerald-600 text-white rounded">Hit</a>
         <a href="{{ route('blackjack.result') }}" class="px-4 py-2 bg-amber-600 text-white rounded">Stand / Resultaat</a>
+        <a href="{{ route('home') }}" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200">Home</a>
+        <a href="{{ route('leaderboard') }}" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200">Leaderboard</a>
     </div>
 
     @php
@@ -53,5 +55,7 @@
         </div>
     @else
         <p class="text-gray-700">Klik op Start om een nieuw spel te beginnen.</p>
+         <a href="{{ route('home') }}" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200">Home</a>
+        <a href="{{ route('leaderboard') }}" class="px-3 py-2 bg-gray-100 rounded hover:bg-gray-200">Leaderboard</a>
     @endif
 @endsection
